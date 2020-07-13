@@ -2,6 +2,7 @@
 
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require("aws-sdk/clients/dynamodb");
+const { CORS_HEADERS } = require("../constants/cors.const");
 
 const docClient = new dynamodb.DocumentClient();
 
@@ -47,6 +48,7 @@ exports.editItemHandler = async (event) => {
 
   const response = {
     statusCode: 200,
+    headers: CORS_HEADERS,
     body: JSON.stringify(body),
   };
 

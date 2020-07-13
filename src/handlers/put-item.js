@@ -3,6 +3,7 @@
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require("aws-sdk/clients/dynamodb");
 var uuid = require("uuid");
+const { CORS_HEADERS } = require("../constants/cors.const");
 
 const docClient = new dynamodb.DocumentClient();
 
@@ -48,6 +49,7 @@ exports.putItemHandler = async (event) => {
 
   const response = {
     statusCode: 200,
+    headers: CORS_HEADERS,
     body: JSON.stringify({ id: id }),
   };
 
