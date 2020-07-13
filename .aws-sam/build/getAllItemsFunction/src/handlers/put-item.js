@@ -2,7 +2,7 @@
 
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require("aws-sdk/clients/dynamodb");
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 
 const docClient = new dynamodb.DocumentClient();
 
