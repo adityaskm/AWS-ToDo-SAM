@@ -2,6 +2,7 @@
 
 // Get the DynamoDB table name from environment variables
 const tableName = process.env.SAMPLE_TABLE;
+const { CORS_HEADERS } = require('../constants/cors.const');
 
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require('aws-sdk/clients/dynamodb');
@@ -31,6 +32,7 @@ exports.getByIdHandler = async (event) => {
  
   const response = {
     statusCode: 200,
+    headers: CORS_HEADERS,
     body: JSON.stringify(item)
   };
  

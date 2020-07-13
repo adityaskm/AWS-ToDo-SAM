@@ -2,7 +2,8 @@
 
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require("aws-sdk/clients/dynamodb");
-var uuid = require('uuid');
+var uuid = require("uuid");
+const { CORS_HEADERS } = require("../constants/cors.const");
 
 const docClient = new dynamodb.DocumentClient();
 
@@ -27,19 +28,29 @@ exports.putItemHandler = async (event) => {
   const title = body.title;
   const subtitle = body.subtitle;
   const userId = body.userId;
+  const status = body.status;
+  const priority = body.priority;
 
   // Creates a new item, or replaces an old item with a new item
   // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#put-property
   var params = {
     TableName: tableName,
-    Item: { id: id, title: title, subtitle: subtitle, userId: userId },
+    Item: {
+      id: id,
+      title: title,
+      subtitle: subtitle,
+      userId: userId,
+      status: status,
+      priority: priority,
+    },
   };
 
   const result = await docClient.put(params).promise();
 
   const response = {
     statusCode: 200,
-    body: JSON.stringify(body),
+    headers: CORS_HEADERS,
+    body: JSON.stringify({ id: id }),
   };
 
   // All log statements are written to CloudWatch
