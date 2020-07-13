@@ -27,6 +27,12 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS, DELETE'"
+        AllowHeaders: "'origin, x-requested-with, X-Forwarded-For'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: True
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
@@ -53,6 +59,12 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS, DELETE'"
+        AllowHeaders: "'origin, x-requested-with, X-Forwarded-For'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: True
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
@@ -79,6 +91,12 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to delete one item by id from a DynamoDB table.
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS, DELETE'"
+        AllowHeaders: "'origin, x-requested-with, X-Forwarded-For'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: True
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
@@ -105,6 +123,12 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS, DELETE'"
+        AllowHeaders: "'origin, x-requested-with, X-Forwarded-For'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: True
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
@@ -131,6 +155,12 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS, DELETE'"
+        AllowHeaders: "'origin, x-requested-with, X-Forwarded-For'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: True
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
