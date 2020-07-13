@@ -2,7 +2,6 @@
 
 // Create a DocumentClient that represents the query to add an item
 const dynamodb = require("aws-sdk/clients/dynamodb");
-var uuid = require("uuid");
 
 const docClient = new dynamodb.DocumentClient();
 
@@ -12,7 +11,7 @@ const tableName = process.env.SAMPLE_TABLE;
 /**
  * A simple example includes a HTTP post method to add one item to a DynamoDB table.
  */
-exports.putItemHandler = async (event) => {
+exports.editItemHandler = async (event) => {
   if (event.httpMethod !== "POST") {
     throw new Error(
       `postMethod only accepts POST method, you tried: ${event.httpMethod} method.`
@@ -23,7 +22,7 @@ exports.putItemHandler = async (event) => {
 
   // Get id and name from the body of the request
   const body = JSON.parse(event.body);
-  const id = uuid.v1();
+  const id = event.pathParameters.id;
   const title = body.title;
   const subtitle = body.subtitle;
   const userId = body.userId;
@@ -40,7 +39,7 @@ exports.putItemHandler = async (event) => {
       subtitle: subtitle,
       userId: userId,
       status: status,
-      priority: priority
+      priority: priority,
     },
   };
 
