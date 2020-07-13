@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "awesome-todo-v2"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-f03j7zaab6mh"
+s3_prefix = "awesome-todo-v2"
+region = "ap-south-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
