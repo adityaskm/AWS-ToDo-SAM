@@ -31,7 +31,7 @@ exports.getAllItemsHandler = async (event) => {
 
   const response = {
     statusCode: 200,
-    headers: CORS_HEADERS,
+    // headers: CORS_HEADERS,
     body: JSON.stringify(items),
   };
 
